@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :potentional_members do
     resources :feedbacks
   end
+
+  resources :searchs, only: [:index]
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -31,6 +31,7 @@ gem "twitter-bootstrap-rails"
 gem "simple_form", "~> 3.1.0"
 gem "rails-i18n"
 gem "font-awesome-rails"
+gem 'will_paginate', '~> 3.1.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

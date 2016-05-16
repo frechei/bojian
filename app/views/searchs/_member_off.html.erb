@@ -1,0 +1,28 @@
+<%- model_class = PotentionalMember -%>
+<h4>潜在会员</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:gender) %></th>
+      <th><%= model_class.human_attribute_name(:age) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @potentional_members.each do |potentional_member| %>
+      <tr>
+        <td><%= link_to potentional_member.name, member_path(potentional_member) %></td>
+        <td><%= potentional_member.phone %></td>
+        <td><%= potentional_member.gender %></td>
+        <td><%= potentional_member.age %></td>
+        <td>
+          <%= link_to "编辑", edit_member_path(potentional_member), 
+            :class => 'btn btn-default btn-success btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

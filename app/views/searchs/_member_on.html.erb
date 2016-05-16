@@ -1,6 +1,8 @@
 <%- model_class = Member -%>
-<h1>续费提醒</h1>
-<%= link_to "返回",members_path, :class => 'btn btn-default' %>
+<div class="page-header">
+    <h1>搜索结果</h1>
+    <h4>会员</h4>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -23,12 +25,11 @@
         <td><%= member.start_date %></td>
         <td><%= member.end_date %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_member_path(member), :class => 'btn btn-default btn-success btn-sm' %>
+          <%= link_to "编辑", edit_member_path(member), 
+            :class => 'btn btn-default btn-success btn-sm' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= will_paginate @members %>

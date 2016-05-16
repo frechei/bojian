@@ -2,7 +2,7 @@ class PotentionalMembersController < ApplicationController
 	before_action :set_potentional_member, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@potentional_members = PotentionalMember.all
+		@potentional_members = PotentionalMember.all.page(params[:page]).order('created_at DESC')
 	end
 
 	def show

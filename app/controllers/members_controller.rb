@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
 	def index
-		@members = Member.where(active: false)
+		@members = Member.where(active: false).page(params[:page]).order('created_at DESC')
 	end
 
 	def new
@@ -43,7 +43,7 @@ class MembersController < ApplicationController
 	end
 
 	def lost
-		@members = Member.where(active: true)
+		@members = Member.where(active: true).page(params[:page]).order('created_at DESC')
 	end
 
 	private 

@@ -14,4 +14,12 @@ class Member < ActiveRecord::Base
 			errors.add(:end_date, "开始时间不能大于结束时间")
 		end
 	end
+
+	def self.search(search)
+	  if search
+	    where("name LIKE ?", "%#{search}%")
+	  else
+	    all
+	  end
+	end
 end
