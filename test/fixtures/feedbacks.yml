@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invite_time: MyString
+  status: MyString
+  person_in_charge: MyString
+  potentional_member_id: 
+
+two:
+  invite_time: MyString
+  status: MyString
+  person_in_charge: MyString
+  potentional_member_id: 

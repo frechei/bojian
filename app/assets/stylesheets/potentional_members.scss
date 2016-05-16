@@ -1,0 +1,28 @@
+// Place all the styles related to the potentional_members controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.feedback {
+		input {
+			height: 27px;
+		}
+		#feedback_state {
+			input {
+				width: 250px;
+			}
+			
+		}
+	}
+
+.list-group {
+	display: none;
+}
+
+li.list-group-item {
+	height: 40px;
+}
+.head {
+	margin: auto;
+	font-weight: bold;
+}

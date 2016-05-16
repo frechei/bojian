@@ -1,0 +1,38 @@
+<%- model_class = Member -%>
+<div class="page-header">
+    <h1>在籍会员</h1>
+    <%= link_to "续费提醒", remind_members_path, :class => 'btn btn-danger' %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+              new_member_path,
+              :class => 'btn btn-primary' %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:card_category) %></th>
+      <th><%= model_class.human_attribute_name(:sword) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:end_date) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= link_to member.name, member_path(member) %></td>
+        <td><%= member.phone %></td>
+        <td><%= card_category_value(member.card_category) %></td>
+        <td><%= sword_value(member.sword) %></td>
+        <td><%= member.start_date %></td>
+        <td><%= member.end_date %></td>
+        <td>
+          <%= link_to "编辑", edit_member_path(member), 
+            :class => 'btn btn-default btn-success btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

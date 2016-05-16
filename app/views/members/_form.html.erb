@@ -1,0 +1,49 @@
+<%= simple_form_for @member do |f| %>
+
+<% if @member.errors.any? %>
+<div id="error_explanation">
+<h3><%= @member.errors.count%>个错误</h3>
+<ul>
+
+</ul>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-xs-2"><%= f.input :name %></div>  
+  <div class="col-xs-2"><%= f.input :gender, prompt: :translate, collection: [:male, :female] %></div>
+  
+  <div class="col-xs-2"><%= f.input :parent %></div>
+  <div class="col-xs-2"><%= f.input :phone %></div>
+  <div class="col-xs-3">
+  <%= f.input :birth_date, as: :date, start_year: Date.today.year - 90,
+              end_year: Date.today.year + 12, 
+                              order: [:year, :month, :day] %>
+  </div>
+</div>
+
+  <%= f.input :address %>
+<div class="row">
+  <div class="col-xs-3">
+  <%= f.input :start_date, as: :date, start_year: Date.today.year - 90,
+              end_year: Date.today.year + 12,
+                             order: [:year, :month, :day] %>
+  </div>
+  <div class="col-xs-3">
+  <%= f.input :end_date, as: :date, start_year: Date.today.year - 90,
+              end_year: Date.today.year + 12,
+                              order: [:year, :month, :day] %>
+  </div>   
+  <div class="col-xs-2"><%= f.input :card_category, prompt: :translate, collection: [:year, :half_year, :season] %></div>
+  <div class="col-xs-2"><%= f.input :sword, prompt: :translate, collection: [:duelling, :foil, :walking] %></div>
+</div> 
+  <%= f.input :national_record %>
+  <%= f.input :provincial_record %>
+  <%= f.input :stop_status %>
+  <%= f.input :stop_reason %>
+  <%= f.input :active %>
+  <%= f.input :not_active_reason %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                members_path, :class => 'btn btn-default' %>
+<% end %>
