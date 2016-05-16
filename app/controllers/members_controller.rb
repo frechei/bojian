@@ -40,6 +40,7 @@ class MembersController < ApplicationController
 
 	def remind
 		@members = Member.where(end_date: (Date.today-7)..(Date.today+7)).where(active: false)
+			.page(params[:page]).order('created_at DESC')
 	end
 
 	def lost
